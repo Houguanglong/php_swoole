@@ -7,12 +7,10 @@
  */
 class Ws
 {
-    CONST HOST = '127.0.0.1';
+    CONST HOST = '0.0.0.0';
     CONST POST = 8812;
 
-    protected $fd;
-    protected $frame;
-
+    public $fd;
     protected $ws;
 
     public function __construct()
@@ -20,10 +18,7 @@ class Ws
         $this->ws = new Swoole\WebSocket\Server(self::HOST,self::POST);
         $this->ws->on('open',[$this,'on_open']);
         $this->ws->on('message',[$this,'on_message']);
-        $this->ws->on('close',[$this,'on_close']);
-        $this->ws->start();
     }
-
 
 
     public function on_open($server,$request)
@@ -34,12 +29,14 @@ class Ws
     public function on_message($server,$frame)
     {
         echo "receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
-        $this->ws->push($frame->fd,'hello my name is houguang',1,true);
+        $this->fd = $frame->fd;
     }
 
     public function push($message)
     {
         $this->ws->push($this->fd,$message);
+        $this->ws->on('close',[$this,'on_close']);
+        $this->ws->start();
     }
 
     public function on_close($ser,$fd)
@@ -50,3 +47,4 @@ class Ws
 
 }
 $server = new Ws();
+$server->push('my name is houguang');
