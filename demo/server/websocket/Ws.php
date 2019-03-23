@@ -38,12 +38,12 @@ class Ws
     public function on_message($server,$frame)
     {
         echo "receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
-        $this->frame = $frame;
+        $this->fd = $frame->fd;
     }
 
     public function push($message)
     {
-        self::$ws->push($this->frame->fd,$message);
+        self::$ws->push($this->fd,$message);
         $this->close();
     }
 
@@ -60,7 +60,5 @@ class Ws
         self::$ws->start();
     }
 
-
-
-
 }
+new Ws();
