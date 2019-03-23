@@ -13,7 +13,7 @@ $server = new Server('0.0.0.0',8812);
 
 $server->set([
     'enable_static_handler'=>true,
-    'document_root'=>'/home/learn/bd_git/swoole_learn/demo/data'    //配置静态文件根目录
+    'document_root'=>'/home/learn/bd_git/php_swoole/demo/data'    //配置静态文件根目录
 ]);
 /**
  * onopen事件 监听服务器与客户端完成连接 成功握手后执行回调函数
