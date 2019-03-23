@@ -15,7 +15,7 @@ $http = new Server('0.0.0.0',8811);
 //如果存在会直接发送文件内容给客户端，不再触发onRequest回调
 $http->set([
     'enable_static_handler'=>true,
-    'document_root'=>'/home/learn/bd_git/swoole_learn/demo/data'    //配置静态文件根目录
+    'document_root'=>'/home/learn/bd_git/php_swoole/demo/data'    //配置静态文件根目录
 ]);
 
 //监听http请求 $request 为http请求对象 $response为http响应对象
