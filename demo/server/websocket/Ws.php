@@ -19,16 +19,13 @@ class Ws
     {
         $ser = new Swoole\WebSocket\Server(self::HOST,self::POST);
         self::$ws = $ser;
-        $this->on('open');
-        $this->on('message');
+        $ser->on('open',[$this,'on_open']);
+        $ser->on('message',[$this,'on_message']);
         $this->push('my name is houguang');
         $this->start();
     }
 
 
-    public function on($method){
-        self::$ws->on($method,[$this,'on_'.$method]);
-    }
 
     public function on_open($server,$request)
     {
