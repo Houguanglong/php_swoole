@@ -1,5 +1,4 @@
 <?php
-namespace demo\server\websocket;
 /**
  * User: 侯光龙
  * FileName: 文件名称

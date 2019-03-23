@@ -1,5 +1,4 @@
 <?php
-namespace demo\server\websocket;
 /**
  * User: websockte 基础类
  * FileName: 文件名称
@@ -22,6 +21,8 @@ class Ws
         self::$ws = $ser;
         $this->on('open');
         $this->on('message');
+        $this->push('my name is houguang');
+        $this->start();
     }
 
 
