@@ -13,16 +13,16 @@ class Ws
     protected $fd;
     protected $frame;
 
-    public static $ws;
+    protected $ws;
 
     public function __construct()
     {
-        $ser = new Swoole\WebSocket\Server(self::HOST,self::POST);
-        self::$ws = $ser;
-        $ser->on('open',[$this,'on_open']);
-        $ser->on('message',[$this,'on_message']);
+        $this->ws = new Swoole\WebSocket\Server(self::HOST,self::POST);
+        $this->ws->on('open',[$this,'on_open']);
+        $this->ws->on('message',[$this,'on_message']);
         $this->push('my name is houguang');
-        $this->start();
+        $this->ws->close('close',[$this,'on_close']);
+        $this->ws->start();
     }
 
 
@@ -40,22 +40,14 @@ class Ws
 
     public function push($message)
     {
-        self::$ws->push($this->fd,$message);
-        $this->close();
+        $this->ws->push($this->fd,$message);
     }
 
-
-    public function close()
+    public function on_close($ser,$fd)
     {
-        self::$ws->on('close',function ($ser,$fd){
-            echo "client {$fd} closed\n";
-        });
+        echo "client {$fd} closed\n";
     }
 
-    public function start()
-    {
-        self::$ws->start();
-    }
 
 }
-new Ws();
+$server = new Ws();
