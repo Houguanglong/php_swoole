@@ -20,8 +20,7 @@ class Ws
         $this->ws = new Swoole\WebSocket\Server(self::HOST,self::POST);
         $this->ws->on('open',[$this,'on_open']);
         $this->ws->on('message',[$this,'on_message']);
-        $this->push('my name is houguang');
-        $this->ws->close('close',[$this,'on_close']);
+        $this->ws->on('close',[$this,'on_close']);
         $this->ws->start();
     }
 
@@ -35,7 +34,7 @@ class Ws
     public function on_message($server,$frame)
     {
         echo "receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
-        $this->fd = $frame->fd;
+        $this->ws->push($frame->fd,'hello my name is houguang',1,true);
     }
 
     public function push($message)
