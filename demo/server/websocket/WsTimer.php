@@ -30,6 +30,7 @@ class WsTimer
      */
     public function on_open($server,$request)
     {
+        //当第一个用户连接之后执行 定时任务
         if($request->fd == 1){
             swoole_timer_tick(2000,function ($timer_id){
                 echo "Timer定时事件执行中 timer_tick_id:{$timer_id}\n";
@@ -46,9 +47,11 @@ class WsTimer
     public function on_message($server,$frame)
     {
         echo "receive from {$frame->fd}:{$frame->data},opcode:{$frame->opcode},fin:{$frame->finish}\n";
+        //当监听到客户端信息后 5秒后发送数据给客户端
         swoole_timer_after(5000,function () use ($server,$frame){
             $server->push($frame->fd,"timer_after_wait_5_second");
         });
+        //返回数据给客户端
         $server->push($frame->fd,'hello my name is houguang',1,true);
     }
 
