@@ -53,7 +53,7 @@ class WsTask
             'task'=>1,
             'fd'=>$frame->fd
         ];
-        $server->taks($data);
+        $server->task($data);
         //返回数据给客户端
         $server->push($frame->fd,'hello my name is houguang',1,true);
     }
@@ -68,6 +68,7 @@ class WsTask
     public function on_task($sev,$taskId,$workId,$data)
     {
         print_r($data);
+        echo "task_id={$taskId}";
         //模拟执行10s场景
         sleep(10);
         //返回执行结果到worker进程 调用onFinish回调函数
@@ -82,7 +83,7 @@ class WsTask
      */
     public function on_finish($sev,$taskId,$data)
     {
-        echo "task_id={$taskId}\n";
+        echo "finish_task_id={$taskId}\n";
         echo "finish-return-data-to-work:{$data}\n";
     }
 
@@ -108,4 +109,4 @@ class WsTask
 
 
 }
-$server = new Ws();
+$server = new WsTask();
