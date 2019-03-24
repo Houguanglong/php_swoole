@@ -68,11 +68,11 @@ class WsTask
     public function on_task($sev,$taskId,$workId,$data)
     {
         print_r($data);
-        echo "task_id={$taskId}";
+        echo "Tasker进程接收到数据，task_id={$taskId}\n";
         //模拟执行10s场景
         sleep(10);
         //返回执行结果到worker进程 调用onFinish回调函数
-        return 'return_data_to_worker';
+        return '返回执行结果return_data_to_worker';
     }
 
     /**
@@ -83,7 +83,7 @@ class WsTask
      */
     public function on_finish($sev,$taskId,$data)
     {
-        echo "finish_task_id={$taskId}\n";
+        echo "接收到Tasker进程处理任务结果,finish_task_id={$taskId}\n";
         echo "finish-return-data-to-work:{$data}\n";
     }
 
