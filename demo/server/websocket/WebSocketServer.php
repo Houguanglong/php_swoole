@@ -1,7 +1,7 @@
 <?php
 /**
  * User: 侯光龙
- * FileName: 文件名称
+ * FileName: swoole-websocket
  * Date: 2019/3/23
  * Time: 20:26
  */
