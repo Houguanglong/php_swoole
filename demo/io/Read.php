@@ -11,8 +11,8 @@ $filename = __DIR__.'/1.txt';
 co::create(function () use ($filename){
     $r = co::readFile($filename);
     if($r != false) {
-        echo "filecontent:{$r}";
-    }else{
-        var_dump($r);
+        echo "filecontent:{$r}".PHP_EOL;
     }
 });
+var_dump($r);
+echo 'start...'.PHP_EOL;
