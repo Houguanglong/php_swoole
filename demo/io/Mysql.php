@@ -24,7 +24,11 @@ class AysMysql
 
     public function __construct()
     {
-        $this->db_source = new swoole_mysql();
+        $this->db_source = new Swoole\Coroutine\MySQL();
+        $result = $this->db_source->connect($this->db_config);
+        if($result === false ){
+            echo '数据库连接失败!';
+        }
     }
 
     public function set_param($key,$value)
@@ -40,25 +44,15 @@ class AysMysql
 
     public function execute()
     {
-        $this->db_source->connect($this->db_config,function ($db,$result) {
-            if($result == false){
-                echo '数据库连接失败!';
-            }
-            if(empty($this->exec_sql)){
-                echo 'sql语句未设置!';
-            }
-            $db->query($this->exec_sql,function ($link,$result){
-                if($result === false){
-                    echo "sql语句执行失败：{$link->error}";
-                }elseif ($result === true){
-                    echo "数据库受影响条数:{$link->affected_rows}";
-                }else{
-                    print_r($result);
-                }
-            });
-            $db->close();
-        });
-        return true;
+        if(empty($this->exec_sql)){
+            echo 'sql语句未设置!';
+        }
+        $result = $this->db_source->query($this->exec_sql);
+        if($result === false){
+            echo "sql语句执行失败：{$this->exec_sql}";
+        }else{
+            print_r($result);
+        }
     }
 
 
