@@ -5,6 +5,7 @@
  * Date: 2019/3/24
  * Time: 23:54
  */
+use Swoole\Coroutine as co;
 class AysMysql
 {
 
@@ -57,7 +58,9 @@ class AysMysql
 
 
 }
-$AysMysql = new AysMysql();
-$AysMysql->set_param('exec_sql',"select * from test");
-$AysMysql->execute();
+co::create(function () {
+    $AysMysql = new AysMysql();
+    $AysMysql->set_param('exec_sql', "select * from test");
+    $AysMysql->execute();
+});
 echo 'start....';
