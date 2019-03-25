@@ -10,5 +10,5 @@ $process = new swoole_process(function (swoole_process $pro){
 },false);
 
 $pid = $process->start();
-$process::wait();
 echo $pid.PHP_EOL;
+$process::wait();
