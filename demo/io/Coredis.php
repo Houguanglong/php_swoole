@@ -30,10 +30,21 @@ class Coredis
         return $this->source_redis->get($key);
     }
 
+    public function set($key,$value)
+    {
+        if(is_array($key)){
+            foreach ($key as $keys=>$values){
+                $this->source_redis->set($keys,$values);
+            }
+        }
+        $this->source_redis->set($key,$value);
+    }
+
 
 }
 co::create(function (){
    $coredis = new Coredis();
+   $coredis->set('name','laocao');
    $value = $coredis->get('name');
    var_dump($value);
 });
