@@ -19,7 +19,7 @@ $process_obj = [];
 for($i = 0;$i<count($url_arr);$i++){
     $process = new swoole_process(function (swoole_process $worker) use ($process_obj,$i,$url_arr){
         $content = CurlData($url_arr[$i]);
-        echo $content;
+        $worker->write($content.PHP_EOL);
     },true);
     $pid = $process->start();
     $process_obj[$pid] = $process;
@@ -34,4 +34,10 @@ function CurlData($url)
     sleep(1);
     return $url.PHP_EOL;
 }
+
+foreach ($process_obj as $pro){
+    echo $pro->read();
+    $pro::wait();
+}
+
 echo 'process_end_time'.date('Y-m-d H:i:s').PHP_EOL;
