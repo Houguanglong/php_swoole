@@ -6,15 +6,15 @@
  * Time: 23:20
  */
 use swoole\Table as TB;
-class Table
+class My_Table
 {
 
     protected static $table;
 
     public static $column_type = [
-        TB::TYPE_INT,   //默认为4个字节，可以设置1，2，4，8一共4种长度
-        TB::TYPE_STRING,    //设置后，设置的字符串不能超过此长度
-        TB::TYPE_FLOAT  //会占用8个字节的内存
+        Table::TYPE_INT,   //默认为4个字节，可以设置1，2，4，8一共4种长度
+        Table::TYPE_STRING,    //设置后，设置的字符串不能超过此长度
+        Table::TYPE_FLOAT  //会占用8个字节的内存
     ];
 
     private function __construct()
@@ -74,10 +74,10 @@ class Table
 
 }
 
-$table = Table::getInstance();
-$table->column('id',TB::TYPE_INT,4);
-$table->column('name',TB::TYPE_STRING,20);
-$table->column('age',TB::TYPE_INT,3);
+$table = My_Table::getInstance();
+$table->column('id',Table::TYPE_INT,4);
+$table->column('name',Table::TYPE_STRING,20);
+$table->column('age',Table::TYPE_INT,3);
 $table->create();
 $table->set('hgl',['id'=>1,'name'=>'houguang','age'=>21]);
 $value = $table->get('hgl');
