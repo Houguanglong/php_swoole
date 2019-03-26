@@ -42,10 +42,15 @@ class Coredis
 
 
 }
-co::create(function (){
-   $coredis = new Coredis();
-   $coredis->set('name','laocao');
-   $value = $coredis->get('name');
-   var_dump($value);
+
+$http = new Swoole\Http\Server('0.0.0.0',8811);
+
+$http->on('request',function ($request,$response){
+    $coredis = new Coredis();
+    $coredis->set('name','laocao');
+    $value = $coredis->get($request->get['key']);
+    $response->header('Content-Type','text/plain');
+    $response->end($value);
 });
-echo 'start.......';
+
+$http->start();

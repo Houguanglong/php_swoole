@@ -17,10 +17,13 @@ $url_arr = [
 $process_obj = [];
 
 for($i = 0;$i<count($url_arr);$i++){
+    //创建swoole进程
     $process = new swoole_process(function (swoole_process $worker) use ($process_obj,$i,$url_arr){
         $content = CurlData($url_arr[$i]);
+        //向管道内写入数据
         $worker->write($content.PHP_EOL);
     },true);
+    //执行fork系统调用，启动进程
     $pid = $process->start();
     $process_obj[$pid] = $process;
 }
@@ -36,7 +39,9 @@ function CurlData($url)
 }
 
 foreach ($process_obj as $pro){
+    //向管道读取数据
     echo $pro->read();
+    //回收结束运行的子进程
     $pro::wait();
 }
 
