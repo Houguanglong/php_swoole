@@ -42,15 +42,22 @@ class Coredis
 
 
 }
-
-$http = new Swoole\Http\Server('0.0.0.0',8811);
-
-$http->on('request',function ($request,$response){
+//
+//$http = new Swoole\Http\Server('0.0.0.0',8811);
+//
+//$http->on('request',function ($request,$response){
+//    $redis = new Swoole\Coroutine\Redis();
+//    $redis->connect('127.0.0.1',6379);
+//    $value = $redis->get($request->get['key']);
+//    $response->header('Content-Type','text/plain');
+//    $response->end($value);
+//});
+//
+//$http->start();
+co::create(function (){
     $redis = new Swoole\Coroutine\Redis();
     $redis->connect('127.0.0.1',6379);
-    $value = $redis->get($request->get['key']);
-    $response->header('Content-Type','text/plain');
-    $response->end($value);
+    $value = $redis->get('name');
+    echo $value;
 });
-
-$http->start();
+echo 'start....';
