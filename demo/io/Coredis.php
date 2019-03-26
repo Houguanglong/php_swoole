@@ -42,22 +42,26 @@ class Coredis
 
 
 }
-//
-//$http = new Swoole\Http\Server('0.0.0.0',8811);
-//
-//$http->on('request',function ($request,$response){
-//    $redis = new Swoole\Coroutine\Redis();
-//    $redis->connect('127.0.0.1',6379);
-//    $value = $redis->get($request->get['key']);
-//    $response->header('Content-Type','text/plain');
-//    $response->end($value);
-//});
-//
-//$http->start();
-co::create(function (){
+
+$http = new Swoole\Http\Server('0.0.0.0',8811);
+
+//基于Server、Http\Server、WebSocket\Server进行开发，
+//底层在onRequet, onReceive, onConnect等事件回调之前自动创建一个协程
+$http->on('request',function ($request,$response){
     $redis = new Swoole\Coroutine\Redis();
     $redis->connect('127.0.0.1',6379);
-    $value = $redis->get('name');
-    echo $value;
+    $value = $redis->get($request->get['key']);
+    $response->header('Content-Type','text/plain');
+    $response->end($value);
 });
-echo 'start....';
+
+$http->start();
+
+//使用Coroutine::create或go方法创建协程
+//co::create(function (){
+//    $redis = new Swoole\Coroutine\Redis();
+//    $redis->connect('127.0.0.1',6379);
+//    $value = $redis->get('name');
+//    echo $value;
+//});
+//echo 'start....';
