@@ -46,9 +46,9 @@ class Coredis
 $http = new Swoole\Http\Server('0.0.0.0',8811);
 
 $http->on('request',function ($request,$response){
-    $coredis = new Coredis();
-    $coredis->set('name','laocao');
-    $value = $coredis->get($request->get['key']);
+    $redis = new Swoole\Coroutine\Redis();
+    $redis->connect('127.0.0.1',6379);
+    $value = $redis->get($request->get['key']);
     $response->header('Content-Type','text/plain');
     $response->end($value);
 });
