@@ -5,7 +5,7 @@ class Index
 {
     public function index()
     {
-        print_r(request()->get());
+        print_r($_GET);
         return 'hello world';
     }
 
