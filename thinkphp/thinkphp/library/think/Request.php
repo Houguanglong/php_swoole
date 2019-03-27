@@ -695,15 +695,14 @@ class Request
      */
     public function get($name = '', $default = null, $filter = '')
     {
-        if (empty($this->get)) {
+        //if (empty($this->get)) {
             $this->get = $_GET;
-        }
+        //}
 
         if (is_array($name)) {
             $this->param      = [];
             return $this->get = array_merge($this->get, $name);
         }
-        print_r($this->get);
         return $this->input($this->get, $name, $default, $filter);
     }
 
