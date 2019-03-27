@@ -398,6 +398,9 @@ class Request
     public function pathinfo()
     {
         //if (is_null($this->pathinfo)) {
+            if(isset($_SERVER['PATH_INFO']) && $_SERVER['PATH_INFO'] != '/'){
+                return ltrim($_SERVER['PATH_INFO'], '/');
+            }
             if (isset($_GET[$this->config->get('var_pathinfo')])) {
                 // 判断URL里面是否有兼容模式参数
                 $_SERVER['PATH_INFO'] = $_GET[$this->config->get('var_pathinfo')];
