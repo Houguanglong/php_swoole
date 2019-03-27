@@ -19,8 +19,11 @@ $http->set([
     'worker_num'=>5,
 ]);
 
-define('APP_PATH', __DIR__ . '/../application/');
-require __DIR__ . '/../thinkphp/base.php';
+$http->on('WorkerStart',function ($sev,$worker_id){
+    define('APP_PATH', __DIR__ . '/../application/');
+    require __DIR__ . '/../thinkphp/base.php';
+});
+
 //监听http请求 $request 为http请求对象 $response为http响应对象
 $http->on('request',function ($request,$response) use ($http){
     if(isset($request->server)){
