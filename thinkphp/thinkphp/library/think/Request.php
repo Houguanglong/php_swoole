@@ -703,7 +703,7 @@ class Request
             $this->param      = [];
             return $this->get = array_merge($this->get, $name);
         }
-
+        print_r($this->get);
         return $this->input($this->get, $name, $default, $filter);
     }
 
