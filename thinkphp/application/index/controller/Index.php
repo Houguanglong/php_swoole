@@ -18,7 +18,7 @@ class Index
     {
         $server = $_POST['http_server'];
         foreach ($server->connections as $fd){
-            $server->push($fd,'hello my name is houguang');
+            echo $fd.'-----';
         }
     }
 }
