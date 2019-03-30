@@ -1,12 +1,11 @@
 <?php
-namespace server;
 /**
  * User: 侯光龙
  * FileName: 文件名称
  * Date: 2019/3/23
  * Time: 13:54
  */
-use Swoole\WebSocket\Server;
+
 class Ws
 {
     CONST HOST = '0.0.0.0';
