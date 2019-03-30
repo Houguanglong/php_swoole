@@ -5,7 +5,7 @@
  * Date: 2019/3/23
  * Time: 13:54
  */
-
+use cache\Redis;
 class Ws
 {
     CONST HOST = '0.0.0.0';
@@ -43,7 +43,7 @@ class Ws
      */
     public function onOpen($server,$request)
     {
-        get_Redis()->set(config('redis.live_game_key'),$request->fd);
+        Redis::getInstance()->set(config('redis.live_game_key'),$request->fd);
         echo "server: handshake success with fd-{$request->fd}\n";
     }
 
@@ -111,7 +111,7 @@ class Ws
      */
     public function onClose($server,$fd)
     {
-        get_Redis()->zRem(config('redis.live_game_key'),$fd);
+        Redis::getInstance()->zRem(config('redis.live_game_key'),$fd);
         echo "client {$fd} closed\n";
     }
 
