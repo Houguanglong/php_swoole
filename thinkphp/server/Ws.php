@@ -1,12 +1,10 @@
 <?php
-namespace server;
 /**
  * User: 侯光龙
  * FileName: 文件名称
  * Date: 2019/3/23
  * Time: 13:54
  */
-use app\common\lib\Redis;
 class Ws
 {
     CONST HOST = '0.0.0.0';
@@ -44,7 +42,7 @@ class Ws
      */
     public function onOpen($server,$request)
     {
-        Redis::getInstance()->set(config('redis.live_game_key'),$request->fd);
+        app\common\lib\Redis::getInstance()->set(config('redis.live_game_key'),$request->fd);
         echo "server: handshake success with fd-{$request->fd}\n";
     }
 
@@ -112,7 +110,7 @@ class Ws
      */
     public function onClose($server,$fd)
     {
-        Redis::getInstance()->zRem(config('redis.live_game_key'),$fd);
+        app\common\lib\Redis::getInstance()->zRem(config('redis.live_game_key'),$fd);
         echo "client {$fd} closed\n";
     }
 
