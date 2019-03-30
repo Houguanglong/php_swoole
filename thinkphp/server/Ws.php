@@ -43,7 +43,8 @@ class Ws
      */
     public function onOpen($server,$request)
     {
-        echo "server: handshake success with fd-{$request->fd}";
+        get_Redis()->set(config('redis.live_game_key'),$request->fd);
+        echo "server: handshake success with fd-{$request->fd}\n";
     }
 
     /**
@@ -110,6 +111,7 @@ class Ws
      */
     public function onClose($server,$fd)
     {
+        get_Redis()->zRem(config('redis.live_game_key'),$fd);
         echo "client {$fd} closed\n";
     }
 
