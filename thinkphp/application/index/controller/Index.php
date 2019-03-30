@@ -17,11 +17,10 @@ class Index
     public function push()
     {
         $server = $_POST['http_server'];
-        foreach ($server->connections as $fd){
-            if($server->isEstablished($fd))
-            {
-                $server->push($fd,'send content success');
-            }
-        }
+        $data = [
+            'method'=>'push_live',
+            'data'=>''
+        ];
+        $server->task($data);
     }
 }

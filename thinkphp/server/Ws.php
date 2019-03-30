@@ -24,6 +24,9 @@ class Ws
         $this->server->on('open',[$this,'onOpen']);
         $this->server->on('message',[$this,'onMessage']);
         $this->server->on('request',[$this,'onRequest']);
+        //使用task任务必须要注册task、finish回调函数
+        $this->server->on('task',[$this,'on_task']);
+        $this->server->on('finish',[$this,'on_finish']);
         $this->server->on('close',[$this,'onClose']);
         $this->server->start();
     }
@@ -45,6 +48,33 @@ class Ws
         //\app\common\lib\Redis::getInstance()->set(config('redis.live_game_key'),$request->fd);
         echo "server: handshake success with fd-{$request->fd}\n";
     }
+
+    /**
+     * 执行task任务 返回执行结果到worker进程
+     * @param object $sev 服务器对象
+     * @param int $taskId task任务ID
+     * @param int $workId task任务进程ID
+     * @param array $data task任务数据
+     */
+    public function onTask($sev,$taskId,$workId,$data)
+    {
+        $task = new \app\common\lib\Task($sev);
+        $method = $data['method'];
+        return $task->$method($data['data']);
+    }
+
+    /**
+     * 将任务处理的结果发送给worker进程
+     * @param object $sev 服务器对象
+     * @param int $taskId 任务的ID
+     * @param $data task任务处理返回的结果内容
+     */
+    public function on_finish($sev,$taskId,$data)
+    {
+        echo "接收到Tasker进程处理任务结果,finish_task_id={$taskId}\n";
+        echo "返回处理结果给woker进程:{$data}\n";
+    }
+
 
     /**
      * onmessage事件 监听客户端发送数据接收
