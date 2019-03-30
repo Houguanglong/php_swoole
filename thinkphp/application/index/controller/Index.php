@@ -13,4 +13,12 @@ class Index
     {
         return 'hello,' . $name;
     }
+
+    public function push()
+    {
+        $server = $_POST['http_server'];
+        foreach ($server->connections as $fd){
+            $server->push($fd,'hello my name is houguang');
+        }
+    }
 }

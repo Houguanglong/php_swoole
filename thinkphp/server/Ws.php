@@ -42,7 +42,7 @@ class Ws
      */
     public function onOpen($server,$request)
     {
-        app\common\lib\Redis::getInstance()->set(config('redis.live_game_key'),$request->fd);
+        //\app\common\lib\Redis::getInstance()->set(config('redis.live_game_key'),$request->fd);
         echo "server: handshake success with fd-{$request->fd}\n";
     }
 
@@ -88,6 +88,7 @@ class Ws
                 $_POST[$k] = $v;
             }
         }
+        $_POST['http_server'] = $this->server;
 
         ob_start();
         try{
@@ -110,7 +111,7 @@ class Ws
      */
     public function onClose($server,$fd)
     {
-        app\common\lib\Redis::getInstance()->zRem(config('redis.live_game_key'),$fd);
+        //\app\common\lib\Redis::getInstance()->zRem(config('redis.live_game_key'),$fd);
         echo "client {$fd} closed\n";
     }
 
