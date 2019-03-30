@@ -60,7 +60,6 @@ $http->on('request',function ($request,$response) use ($http){
             ->send();
     }catch (\Exception $e){
         var_dump($e->getMessage());
-        die;
     }
     $content = ob_get_contents();
     ob_end_clean();
