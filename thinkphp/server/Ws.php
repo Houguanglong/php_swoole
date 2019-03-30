@@ -5,7 +5,7 @@
  * Date: 2019/3/23
  * Time: 13:54
  */
-use cache\Redis;
+use app\common\lib\Redis;
 class Ws
 {
     CONST HOST = '0.0.0.0';
