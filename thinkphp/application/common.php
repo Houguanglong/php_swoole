@@ -10,8 +10,3 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
-use cache\Redis;
-function get_Redis()
-{
-    return Redis::getInstance();
-}
