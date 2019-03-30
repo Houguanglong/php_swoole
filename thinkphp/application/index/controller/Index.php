@@ -18,7 +18,10 @@ class Index
     {
         $server = $_POST['http_server'];
         foreach ($server->connections as $fd){
-            echo $fd.'-----';
+            if($server->exist($fd))
+            {
+                $server->push($fd,'send content success');
+            }
         }
     }
 }
