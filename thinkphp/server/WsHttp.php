@@ -15,6 +15,7 @@ class WsHttp extends Server
     public function __construct($host=self::HOST,$port=self::POST)
     {
         $this->server = new Swoole\WebSocket\Server($host,$port);
+        //开放监听8812端口 未设置配置则默认使用主服务器的配置
         $this->server->listen(self::HOST,self::CHART_PORT,SWOOLE_SOCK_TCP);
         $this->set([
             'enable_static_handler'=>true,
