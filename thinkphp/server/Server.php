@@ -16,7 +16,7 @@ abstract class Server
     abstract function onWorkerStart($sev,$worker_id);
 
     //初始化方法 设置默认回调事件worker/Task进程启动,启动task
-    protected function __construct()
+    public function __construct()
     {
         $this->server->on('task',[$this,'onTask']);
         $this->server->on('finish',[$this,'onFinish']);
@@ -27,7 +27,7 @@ abstract class Server
      * 用于设置服务器运行时的各项参数
      * @param array $data
      */
-    protected function set($data)
+    public function set($data)
     {
         $this->server->set($data);
     }
@@ -39,7 +39,7 @@ abstract class Server
      * @param int $workId task任务进程ID
      * @param array $data task任务数据
      */
-    protected function onTask($sev,$taskId,$workId,$data)
+    public function onTask($sev,$taskId,$workId,$data)
     {
         $task = new \app\common\lib\Task($sev);
         $method = $data['method'];
@@ -52,7 +52,7 @@ abstract class Server
      * @param int $taskId 任务的ID
      * @param $data task任务处理返回的结果内容
      */
-    protected function onFinish($sev,$taskId,$data)
+    public function onFinish($sev,$taskId,$data)
     {
         echo "接收到Tasker进程处理任务结果,finish_task_id={$taskId}\n";
         echo "返回处理结果给woker进程:{$data}\n";
