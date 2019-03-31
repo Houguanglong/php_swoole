@@ -1,12 +1,11 @@
 <?php
-namespace server;
 /**
  * User: 侯光龙
  * FileName: 文件名称
  * Date: 2019/3/31
  * Time: 0:59
  */
-
+include __DIR__.'/Server.php';
 class Http extends Server
 {
     CONST HOST = '0.0.0.0';
