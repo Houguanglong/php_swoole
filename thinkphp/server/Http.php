@@ -5,7 +5,7 @@
  * Date: 2019/3/31
  * Time: 0:59
  */
-class Http extends Server
+class Http extends \Server
 {
     CONST HOST = '0.0.0.0';
     CONST POST = 8811;
@@ -83,5 +83,6 @@ class Http extends Server
         echo "client {$fd} closed\n";
     }
 
-
 }
+$http = new Http();
+
