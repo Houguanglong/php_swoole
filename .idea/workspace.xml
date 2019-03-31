@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dda1dabd-a965-47c8-a5f3-c35138f979ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/thinkphp/server/WsHttp.php" beforeDir="false" afterPath="$PROJECT_DIR$/thinkphp/server/WsHttp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thinkphp/application/index/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/thinkphp/application/index/controller/Index.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,7 +32,7 @@
           <entry key="html" value="5" />
           <entry key="ico" value="1" />
           <entry key="js" value="7" />
-          <entry key="php" value="117" />
+          <entry key="php" value="118" />
           <entry key="sh" value="1" />
         </counts>
       </usages-collector>
@@ -41,7 +41,7 @@
           <entry key="HTML" value="5" />
           <entry key="Image" value="1" />
           <entry key="JavaScript" value="7" />
-          <entry key="PHP" value="117" />
+          <entry key="PHP" value="118" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="htaccess" value="1" />
         </counts>
@@ -50,32 +50,47 @@
         <counts>
           <entry key="html" value="10" />
           <entry key="js" value="26" />
-          <entry key="php" value="4481" />
+          <entry key="php" value="4487" />
+          <entry key="sh" value="132" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="HTML" value="10" />
           <entry key="JavaScript" value="26" />
-          <entry key="PHP" value="4481" />
+          <entry key="PHP" value="4487" />
+          <entry key="PLAIN_TEXT" value="132" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thinkphp/server/WsHttp.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-875">
-              <caret line="43" column="57" lean-forward="true" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
+            <state relative-caret-position="650">
+              <caret line="89" column="26" lean-forward="true" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thinkphp/server/reload.sh">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/thinkphp/application/index/controller/Index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -107,12 +122,13 @@
         <option value="$PROJECT_DIR$/thinkphp/server/Server.php" />
         <option value="$PROJECT_DIR$/thinkphp/server/Tcp.php" />
         <option value="$PROJECT_DIR$/thinkphp/public/static/live/detail.html" />
-        <option value="$PROJECT_DIR$/thinkphp/application/index/controller/Index.php" />
         <option value="$PROJECT_DIR$/thinkphp/public/static/live/js/chart_comment.js" />
         <option value="$PROJECT_DIR$/thinkphp/public/static/live/js/websocket.js" />
         <option value="$PROJECT_DIR$/thinkphp/application/common/lib/Task.php" />
         <option value="$PROJECT_DIR$/thinkphp/monitoring/Server.php" />
         <option value="$PROJECT_DIR$/thinkphp/server/WsHttp.php" />
+        <option value="$PROJECT_DIR$/thinkphp/server/reload.sh" />
+        <option value="$PROJECT_DIR$/thinkphp/application/index/controller/Index.php" />
       </list>
     </option>
   </component>
@@ -155,6 +171,27 @@
               <item name="php_swoole" type="b2602c69:ProjectViewProjectNode" />
               <item name="php_swoole" type="462c0819:PsiDirectoryNode" />
               <item name="thinkphp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="php_swoole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="php_swoole" type="462c0819:PsiDirectoryNode" />
+              <item name="thinkphp" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="php_swoole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="php_swoole" type="462c0819:PsiDirectoryNode" />
+              <item name="thinkphp" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="php_swoole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="php_swoole" type="462c0819:PsiDirectoryNode" />
+              <item name="thinkphp" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="php_swoole" type="b2602c69:ProjectViewProjectNode" />
@@ -208,12 +245,12 @@
       <workItem from="1553619255016" duration="1030000" />
       <workItem from="1553669363768" duration="8761000" />
       <workItem from="1553951081838" duration="12370000" />
-      <workItem from="1554002591520" duration="12767000" />
+      <workItem from="1554002591520" duration="13033000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34928000" />
+    <option name="totallyTimeSpent" value="35194000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -484,13 +521,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thinkphp/application/index/controller/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/thinkphp/public/static/live/detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -539,13 +569,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thinkphp/server/reload.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/thinkphp/server/WsHttp.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-875">
-          <caret line="43" column="57" lean-forward="true" selection-start-line="43" selection-start-column="57" selection-end-line="43" selection-end-column="57" />
+        <state relative-caret-position="650">
+          <caret line="89" column="26" lean-forward="true" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp/server/reload.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp/application/index/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
         </state>
       </provider>
     </entry>

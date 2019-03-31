@@ -6,7 +6,7 @@ class Index
     public function index()
     {
         print_r(request()->get());
-        return 'hello world';
+        return 'hello world123123';
     }
 
     public function hello($name = 'ThinkPHP5')
