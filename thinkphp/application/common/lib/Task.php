@@ -26,12 +26,11 @@ class Task
 
     public function push_comment($data)
     {
-        $server = $_POST['http_server'];
-        $connect_count = $server->ports[1]->connections;
+        $connect_count = $this->server->ports[1]->connections;
         foreach ($connect_count as $fd)
         {
-            if($server->isEstablished($fd)){
-                $server->push($fd,$data);
+            if($this->server->isEstablished($fd)){
+                $this->server->push($fd,$data);
             }
         }
     }
