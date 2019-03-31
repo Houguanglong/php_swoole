@@ -6,7 +6,9 @@ var websocket = new WebSocket(wsUrl);
 //成功和websockte服务建立连接 执行回调函数
 websocket.onopen = function (evt) {
     //连接成功 发送数据给服务器
-    websocket.send('How are you?');
+    if(websocket.readyState == 1){
+        websocket.send('How are you?');
+    }
     console.log('wb_server-connect-success');
 }
 
