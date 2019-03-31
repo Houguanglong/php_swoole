@@ -116,5 +116,5 @@ class WsHttp extends Server
     }
 
 }
-$http = new Http();
+$http = new WsHttp();
 
