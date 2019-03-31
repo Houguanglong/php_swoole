@@ -1,5 +1,4 @@
 <?php
-namespace app\common\lib;
 /**
  * User: 侯光龙
  * FileName: 文件名称
