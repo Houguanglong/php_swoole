@@ -18,8 +18,8 @@ abstract class Server
     //初始化方法 设置默认回调事件worker/Task进程启动,启动task
     protected function __construct()
     {
-        $this->server->on('task',[$this,['onTask']]);
-        $this->server->on('finish',[$this,['onFinish']]);
+        $this->server->on('task',[$this,'onTask']);
+        $this->server->on('finish',[$this,'onFinish']);
     }
 
 
