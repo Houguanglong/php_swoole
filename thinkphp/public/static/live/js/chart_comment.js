@@ -1,5 +1,5 @@
 //websocket 地址
-var wsUrl = 'ws://47.107.146.132:8811';
+var wsUrl = 'ws://47.107.146.132:8812';
 //创建websocket对象实例
 var websocket = new WebSocket(wsUrl);
 

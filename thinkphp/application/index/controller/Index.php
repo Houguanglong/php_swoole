@@ -23,4 +23,16 @@ class Index
         ];
         return $server->task($data);
     }
+
+
+    public function push_comment()
+    {
+        $server = $_POST['http_server'];
+        $content = $_GET['comment'];
+        $data = [
+            'method'=>'push_comment',
+            'data'=>$content
+        ];
+        return $server->task($data);
+    }
 }
