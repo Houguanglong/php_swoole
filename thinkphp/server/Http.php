@@ -1,11 +1,13 @@
 <?php
+namespace server;
 /**
  * User: 侯光龙
  * FileName: 文件名称
  * Date: 2019/3/31
  * Time: 0:59
  */
-class Http extends \Server
+
+class Http extends Server
 {
     CONST HOST = '0.0.0.0';
     CONST POST = 8811;

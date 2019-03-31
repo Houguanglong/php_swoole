@@ -1,4 +1,5 @@
 <?php
+namespace server;
 /**
  * User: 侯光龙
  * FileName: 文件名称
