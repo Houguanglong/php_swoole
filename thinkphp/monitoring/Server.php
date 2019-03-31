@@ -24,6 +24,7 @@ class Server
     }
 
 }
+//nohup 命令让进程在后台运行
 swoole_timer_tick(2000,function ($timer_id){
     (new Server())->port();
 });

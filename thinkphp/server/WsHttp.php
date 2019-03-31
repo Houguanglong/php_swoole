@@ -68,6 +68,11 @@ class WsHttp extends Server
      */
     public function onRequest($request,$response)
     {
+        if($request->server['request_uri'] == '/favicon.ico'){
+            $response->status(404);
+            $response->end();
+            return ;
+        }
         $_SERVER = [];
         if(isset($request->server)){
             foreach ($request->server as $k =>$v){
