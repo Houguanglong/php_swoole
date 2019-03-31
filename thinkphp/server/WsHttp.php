@@ -23,6 +23,7 @@ class WsHttp extends Server
             'worker_num'=>5,
             'task_worker_num'=>5
         ]);
+        $this->server->on('start',[$this,'onStart']);
         $this->server->on('WorkerStart',[$this,'onWorkerStart']);
         $this->server->on('open',[$this,'onOpen']);
         $this->server->on('message',[$this,'onMessage']);
@@ -30,6 +31,12 @@ class WsHttp extends Server
         parent::__construct();
         $this->server->on('close',[$this,'onClose']);
         $this->server->start();
+    }
+
+
+    public function onStart($server)
+    {
+        swoole_set_process_name('live_master');
     }
 
     public function onWorkerStart($sev,$worker_id)
