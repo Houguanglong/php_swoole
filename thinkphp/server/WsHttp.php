@@ -18,6 +18,7 @@ class WsHttp extends Server
             'enable_static_handler'=>true,
             'document_root'=>'/home/learn/bd_git/php_swoole/thinkphp/public/static',    //配置静态文件根目录
             'worker_num'=>5,
+            'task_worker_num'=>5
         ]);
         $this->server->on('WorkerStart',[$this,'onWorkerStart']);
         $this->server->on('open',[$this,'onOpen']);
