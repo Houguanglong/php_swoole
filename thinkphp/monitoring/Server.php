@@ -13,11 +13,13 @@ class Server
     public function port()
     {
         $shell = 'netstat -anp 2>/dev/null | grep '.self::PORT.'| grep LISTEN | wc -l';
+        //shell_exec php函数执行linux shell脚本
         $result = shell_exec($shell);
+        //监听结果 做相应处理 通知短信或者邮箱操作
         if($result != 1){
-            echo date('Y-m-d H:i:s').'error';
+            echo date('Y-m-d H:i:s').'error'.PHP_EOL;
         }else{
-            echo date('Y-m-d H:i:s').'success';
+            echo date('Y-m-d H:i:s').'success'.PHP_EOL;
         }
     }
 
