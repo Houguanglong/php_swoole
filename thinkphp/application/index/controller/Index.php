@@ -21,6 +21,6 @@ class Index
             'method'=>'push_live',
             'data'=>''
         ];
-        $server->task($data);
+        return $server->task($data);
     }
 }

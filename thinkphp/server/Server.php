@@ -5,6 +5,7 @@
  * Date: 2019/3/31
  * Time: 0:45
  */
+include __DIR__.'/../application/common/lib/Task.php';
 abstract class Server
 {
     //对象实例
@@ -41,7 +42,7 @@ abstract class Server
      */
     public function onTask($sev,$taskId,$workId,$data)
     {
-        $task = new \app\common\lib\Task($sev);
+        $task = new Task($sev);
         $method = $data['method'];
         return $task->$method($data['data']);
     }
