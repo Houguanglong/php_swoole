@@ -9,7 +9,7 @@ include __DIR__.'/Server.php';
 class WsHttp extends Server
 {
     CONST HOST = '0.0.0.0';
-    CONST POST = 8811;
+    CONST POST = 8887;
     CONST CHART_PORT = 8812;
 
     public function __construct($host=self::HOST,$port=self::POST)
