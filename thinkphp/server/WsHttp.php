@@ -14,7 +14,6 @@ class WsHttp extends Server
     public function __construct($host=self::HOST,$port=self::POST)
     {
         $this->server = new Swoole\WebSocket\Server($host,$port);
-        parent::__construct();
         $this->set([
             'enable_static_handler'=>true,
             'document_root'=>'/home/learn/bd_git/php_swoole/thinkphp/public/static',    //配置静态文件根目录
@@ -24,6 +23,7 @@ class WsHttp extends Server
         $this->server->on('open',[$this,'onOpen']);
         $this->server->on('message',[$this,'onMessage']);
         $this->server->on('request',[$this,'onRequest']);
+        parent::__construct();
         $this->server->on('close',[$this,'onClose']);
         $this->server->start();
     }
