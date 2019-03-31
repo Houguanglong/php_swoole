@@ -20,7 +20,7 @@ class Http extends Server
             'document_root'=>'/home/learn/bd_git/php_swoole/thinkphp/public/static',    //配置静态文件根目录
             'worker_num'=>5,
         ]);
-        $this->server->on('WorkerStart',[$this,['onWorkerStart']]);
+        $this->server->on('WorkerStart',[$this,'onWorkerStart']);
         $this->server->on('request',[$this,'onRequest']);
         $this->server->on('close',[$this,'onClose']);
         $this->server->start();
