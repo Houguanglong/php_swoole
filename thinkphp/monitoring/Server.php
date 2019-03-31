@@ -22,4 +22,6 @@ class Server
     }
 
 }
-(new Server())->port();
+swoole_timer_tick(2000,function ($timer_id){
+    (new Server())->port();
+});
