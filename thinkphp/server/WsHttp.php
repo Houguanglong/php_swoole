@@ -10,10 +10,12 @@ class WsHttp extends Server
 {
     CONST HOST = '0.0.0.0';
     CONST POST = 8811;
+    CONST CHART_PORT = 8812;
 
     public function __construct($host=self::HOST,$port=self::POST)
     {
         $this->server = new Swoole\WebSocket\Server($host,$port);
+        $this->server->listen(self::HOST,self::CHART_PORT,SWOOLE_SOCK_TCP);
         $this->set([
             'enable_static_handler'=>true,
             'document_root'=>'/home/learn/bd_git/php_swoole/thinkphp/public/static',    //配置静态文件根目录
