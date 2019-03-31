@@ -8,7 +8,7 @@
 class Http extends Server
 {
     CONST HOST = '0.0.0.0';
-    CONST POST = '8811';
+    CONST POST = 8811;
 
     public function __construct($host=self::HOST,$port=self::POST)
     {
